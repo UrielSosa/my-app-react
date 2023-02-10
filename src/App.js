@@ -7,12 +7,13 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Detail from "./pages/Detail";
+import Gif from './components/Gif';
 import NotFound from "./pages/NotFound";
 
-//
+
 const App = () => {
     const [lang, setLang] = useState("en");
-    const [links, setLinks] = useState(["Home", "Services", "Projects", "Pages", "Contact"]);
+    const [links, setLinks] = useState(["Home", "Services", "Projects", "Pages", "Contact", "Gif"]);
 
     const handleLinksLanguage = (langParam) => {
         let newLinks = ["Home", "Services", "Projects", "Pages", "Contact"];
@@ -37,6 +38,7 @@ const App = () => {
                 <Route exact path="/" component={Home} />
                 <Route path="/services/:id" component={Detail} />
                 <Route path="/movies/:id" component={Detail} />
+                <Route path="/gif" component={Gif} />
                 <Route component={NotFound} />
             </Switch>
             <Footer />
