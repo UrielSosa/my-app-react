@@ -3,11 +3,23 @@ import Button from "./Button";
 import logo from './assets/images/logo.png';
 
 function Header({ links }) {
+
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+
+    let input = e.target.search.value;
+    console.log(input);
+    if (input.length >= 3) {
+        // enviar data
+    }
+  }
+
+
   return (
     <header className="header-area header-sticky">
       <div className="container">
         <div className="row">
-          <div className="col-12">
+          <div className="col-8">
             <nav className="main-nav">
               <Link to="/" className="logo">
                 <img
@@ -27,6 +39,11 @@ function Header({ links }) {
                 <span>Menu</span>
               </a>
             </nav>
+          </div>
+          <div className='col-4 d-flex flex-column justify-content-center'>
+              <form onSubmit={e => handleSubmit(e)}>
+                <input type="text" name='search' className='form-control' />
+              </form>
           </div>
         </div>
       </div>
