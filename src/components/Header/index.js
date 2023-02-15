@@ -1,16 +1,19 @@
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Button from "./Button";
 import logo from './assets/images/logo.png';
 
 function Header({ links }) {
+  const history = useHistory();
+  console.log(history);
 
   const handleSubmit = (e) =>{
     e.preventDefault();
 
     let input = e.target.search.value;
-    console.log(input);
     if (input.length >= 3) {
-        // enviar data
+        // history.push('/results?palabra='+ input);
+        history.push(`/results?palabra=${input}`);
+        e.target.search.value = '';
     }
   }
 
